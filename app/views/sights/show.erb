@@ -1,0 +1,32 @@
+<div class="row">
+   <div class="col-sm-12">
+    <% unless locals.empty? %>
+      <%= message %>
+    <% end %>
+   </div>   
+</div>
+
+<div class="row">
+  <div class="col-sm-12">
+    <!-- NAME -->
+    <h1><%= @sight.name %></h1>
+    
+    <!-- DESCRIPTION -->
+    <h4>Description:</h4>
+    <%= @sight.description %>    
+    <br></br>
+    
+    <!-- REVIEWS -->
+    <% if @reviews.empty? %>
+      <h4>Reviews:</h4>
+      There are no reviews posted. Contribute your review now!<br>
+      <a href="/reviews/new"><input type="submit" value="Create Review"></a><br>
+    <% else %>
+      <h4>Recent reviews - click a user to see all reviews - or - a review to edit:</h4>
+      <% @reviews.each do |review| %>
+        <a href="/users/<%= review.user.slug %>"><%= review.user.username %></a> said - <a href="/reviews/<%= review.id %>">"<%= review.content %>"</a><br>
+      <% end %><br>
+      Want to share your thoughts? <a href="/reviews/new"><input type="submit" value="Create Review"></a><br>
+    <% end %>    
+  </div> <!-- col-sm-12 -->
+</div> <!-- row -->

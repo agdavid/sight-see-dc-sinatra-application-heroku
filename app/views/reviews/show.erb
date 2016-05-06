@@ -1,0 +1,29 @@
+<% unless locals.empty? %>
+  <%= message %>
+<% end %>
+
+<div class="row">
+  <div class="col-sm-12">
+    <h4>
+      <% if @user == current_user %>
+        <%= @user.username %>, you reviewed the <a href="/sights/<%= @sight.id %>"><%= @sight.name %></a> and said:
+      <% else %>
+        <%= @user.username %> reviewed the <a href="/sights/<%= @sight.id %>"><%= @sight.name %></a> and said:
+      <% end %>
+    </h4>
+    "<%= @review.content %>"
+    <br></br>
+    <% if @user == current_user %>
+      <a href="/reviews/<%= @review.id %>/edit"><input type="submit" value="Edit Review"></a>
+      <br></br>
+      <form method="POST" action="/reviews/<%= @review.id %>/delete">
+      <input type="hidden" id="hidden" name="_method" value="DELETE">
+      <input type="submit" value="Delete Review">
+      </form><br>
+    <% end %>  
+    <h5>Want to share more thoughts? Contribute another review!</h5>
+      <a href="/reviews/new"><input type="submit" value="Create Review"></a>
+      <br></br>
+
+  </div> <!-- col-sm-12 -->
+</div><!-- row -->

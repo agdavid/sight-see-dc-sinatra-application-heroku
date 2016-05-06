@@ -1,0 +1,19 @@
+<div class="row">
+   <div class="col-sm-12">
+    <% unless locals.empty? %>
+      <%= message %>
+    <% end %>
+   </div>   
+</div>
+
+<div class="row">
+  <div class="col-sm-12">
+    <h4><%= current_user.username %>, create a new DC sight for others to visit:</h4>
+    <form method="POST" action="/sights">
+      Name: <input type="text" name="sight[name]" id="new_sight_name"><br>
+      Description:<br>
+      <textarea name="sight[description]" rows="4" cols="50" id="new_sight_description">Enter brief description here...</textarea><br>
+      <input type="submit" value="Create New Sight">
+    </form>
+  </div>
+</div>

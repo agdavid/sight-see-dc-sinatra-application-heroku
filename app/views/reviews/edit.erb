@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="col-sm-12">
+    <h3><%= current_user.username %>, edit your review below:</h3><br>
+
+    <form method="POST" action="/reviews/<%= @review.id %>">
+    <input type="hidden" id="hidden" name="_method" value="PATCH">
+      <h4>Step 1. Confirm and Check the Correct Sight</h4>
+      <% @sights.each do |sight| %>
+        <input type="radio" name="sight[id]" id="sight_<%= sight.id %>" value="<%= sight.id %>"<%='checked' if @sight.id == sight.id %>><%= sight.name %><br>
+      <% end %>
+      <br>
+      <h4>Step 2. Update Your Thoughts</h4>
+      <textarea name="review[content]" rows="4" cols="50" id="review_content"><%= @review.content %></textarea>
+      <br></br>
+      <h4>Step 3. Click to Submit!</h4>
+      <input type="submit" value="Submit Edited Review">
+      <br></br>
+    </form>
+  </div>
+</div>

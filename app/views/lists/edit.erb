@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="col-sm-12">
+
+    <% unless locals.empty? %>
+      <%= message %>
+    <% end %>
+
+    <h3><%= @user.username %> - Edit Your Sightseeing List</h3><br>
+
+    <form method="POST" action="/lists/<%= @user.slug %>">
+    <input type="hidden" id="hidden" name="_method" value="PATCH">
+      <h4>Step 1. Select Existing or Create A Sight</h4>
+      <h5>Check or uncheck the box to add or remove an existing sight:</h5>
+      <% @sights.each do |sight| %>
+      <input type="checkbox" name="user[sight_ids][]" id="sight_<%= sight.id %>" value="<%= sight.id %>" <%='checked' if @user.sight_ids.include?(sight.id) %>><%= sight.name %><br>
+      <% end %><br>
+      <h5>- OR - create a new sight to visit:</h5>
+      Name: <input type="text" name="sight[name]" id="new_sight_name"><br>
+      Description:<br>
+      <textarea name="sight[description]" rows="4" cols="50" id="new_sight_description" placeholder="Enter brief description..."></textarea>
+      <br></br>
+      <h4>Step 2. Click to Edit!</h4>
+      <input type="submit" value="Submit Edited List">
+    
+    </form><br>
+
+  </div> <!-- col-sm-12 -->
+</div> <!-- row -->

@@ -1,0 +1,57 @@
+
+<h4>Welcome, <%= @user.username%>!</h4> 
+<br>
+<h4>Personalize your sightseeing adventure <a href="/users/<%= current_user.slug %>">here</a> - or - take a look at existing sights and recent reviews below.</h4>
+<br>
+
+<!-- *** LEFT COLUMN *** -->
+<div class="row">
+  <div class="col-sm-6">
+    <h4>Sights in DC - click a sight for description and all sight reviews: </h4>
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <tbody>
+          <% @sights.each do |sight| %>
+            <tr>
+              <td>
+                <a href="/sights/<%= sight.id %>"><%= sight.name %></a>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <br></br>
+  </div> <!-- left col-sm-6 -->
+
+  <!-- *** RIGHT COLUMN *** -->
+  <div class="col-sm-6">
+    <h4>Recent Reviews - click a user - or - sight to see all reviews: </h4>
+    <% if @reviews.empty? %>
+
+      <h5>There are no reviews posted. Contribute a review now!</h5>
+      <a href="/reviews/new"><input type="submit" value="Create Review"></a>
+      <br></br>
+    
+    <% else %>
+    
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <tbody>
+            <% @reviews.each do |review| %>
+              <tr>
+                <td>
+                  <a href="/users/<%= review.user.slug %>"><%= review.user.username %></a> on the <a href="/sights/<%= review.sight.id %>"><%= review.sight.name %></a>: "<%= review.content %>"
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <br></br>    
+    
+    <% end %>
+  
+  </div> <!-- right col-sm-6 -->
+
+</div> <!-- row -->

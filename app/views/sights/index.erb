@@ -1,0 +1,55 @@
+<% if @sights.empty? %>
+
+  <div class="row">
+    <div class="col-sm-12">
+      <h4>There are no sights listed. Create a sight that others should visit now!</h4><br>
+      <a href="/sights/new"><input type="submit" value="Create Sight"></a>
+      <br></br>
+    </div> <!-- col-sm-12 -->
+  </div> <!-- row -->
+
+<% else %>
+
+  <div class="row">
+    <div class="col-sm-12">
+
+      <!-- MAIN CONTENT -->
+      <h4>Below are the DC sights. Click a sight for further information and reviews.</h4>
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <tbody>
+            <% counter = 1 %>
+            <% @sights.each do |sight| %>
+              <tr>
+                <td>
+                  <%= counter %>. <a href="/sights/<%= sight.id %>"><%= sight.name %></a> - <%= sight.description %>
+                  <% counter += 1 %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      
+      <!-- NESTED ROWS -->
+      <div class="col-sm-12">
+        <div class="row">
+          
+          <div class="col-sm-6">
+            <h4>Don't see the sight you are looking for?</h4>
+            <a href="/sights/new"><input type="submit" value="Create Sight"></a><br></br>
+          </div>
+          
+          <div class="col-sm-6">
+            <h4>Want to share your thoughts?</h4>
+            <a href="/reviews/new"><input type="submit" value="Create Review"></a><br></br>
+          </div>
+        
+        </div>
+      </div>
+      <br></br>
+
+    </div> <!-- col-sm-12 -->
+  </div> <!-- row -->
+  
+<% end %>

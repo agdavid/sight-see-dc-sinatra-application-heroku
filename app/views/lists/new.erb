@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="col-sm-12">
+    
+    <% unless locals.empty? %>
+      <%= message %>
+    <% end %>
+
+    <h3><%= current_user.username %> - Create Your Sightseeing List</h3><br>
+    <h4>Step 1. Select Existing or Create A Sight</h4>
+    <h5>Check the box to add an existing sight:</h5>
+
+    <form method="POST" action="/lists">
+      <% @sights.each do |sight| %>
+      <input type="checkbox" name="user[sight_ids][]" id="sight_<%= sight.id %>" value="<%= sight.id %>"><%= sight.name %><br>
+      <% end %><br>
+
+      <h5>- OR - Create a new sight to visit:</h5>
+      Name: <input type="text" name="sight[name]" id="new_sight_name"><br>
+      Description:<br>
+      <textarea name="sight[description]" rows="4" cols="50" id="
+      new_sight_description" placeholder="Enter brief description here..."></textarea>
+      <br></br>
+      <h4>Step 2. Click to Create!</h4>
+      <input type="submit" value="Create Sightseeing List">
+
+    </form><br>
+  
+  </div> <!-- col-sm-12 -->
+</div> <!-- row -->

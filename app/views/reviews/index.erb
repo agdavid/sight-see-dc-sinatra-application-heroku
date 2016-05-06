@@ -1,0 +1,38 @@
+<% if @reviews.empty? %>
+
+  <div class="row">
+    <div class="col-sm-12">
+      <h4>There are no reviews posted. Contribute a review now!</h4>
+      <a href="/reviews/new"><input type="submit" value="Create Review"></a>
+      <br></br>
+    </div> <!-- col-sm-12 -->
+  </div> <!-- row -->
+
+<% else %>
+
+  <div class="row">
+    <div class="col-sm-12">
+      <h4>Below are the most recent reviews. Click a user or sight for further reviews.</h4>
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <tbody>
+            <% @reviews.each do |review| %>
+              <tr>
+                <td>
+                  <a href="/users/<%= review.user.slug %>"><%= review.user.username %></a> on the<a href="/sights/<%= review.sight.id %>"> <%= review.sight.name%></a> - "<%= review.content %>" 
+                  <% if current_user.id == review.user.id %> <!-- edit button -->
+                    <a href="/reviews/<%= review.id %>/edit"><input type="submit" value="Edit Review"></a><br>
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <h4>Want to share your thoughts? Contribute a review now!</h4><br>
+      <a href="/reviews/new"><input type="submit" value="Create Review"></a>
+      <br></br>
+    </div> <!-- col-sm-12 -->
+  </div> <!-- row -->
+  
+<% end %>

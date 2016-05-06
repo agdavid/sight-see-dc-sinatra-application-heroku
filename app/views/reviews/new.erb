@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col-sm-12">
+
+    <% unless locals.empty? %>
+      <%= message %>
+    <% end %>
+    
+    <form method="POST" action="/reviews">
+      <h4>Step 1. Pick or Create A Sight to Review</h4>
+      <h5>Choose one (1) existing sight to review by checking the box:</h5>
+      <% @sights.each do |sight| %>
+        <input type="radio" name="sight[id]" id="sight_<%= sight.id %>" value="<%= sight.id %>"> <%= sight.name %><br>
+      <% end %>
+      <br>
+      
+      <h4>Step 2. Share Your Thoughts</h4>
+      <textarea name="review[content]" rows="4" cols="50" id="review_content" placeholder="Enter review here..."></textarea>
+      <br></br>
+      
+      <h4>Step 3. Click to Submit!</h4>
+      <input type="submit" value="Submit Review">
+    
+    </form><br>    
+  </div> <!-- col-sm-12 -->
+</div> <!-- row -->
