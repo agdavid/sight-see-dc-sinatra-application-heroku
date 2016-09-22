@@ -8,12 +8,13 @@ SightSeeDC was created by Antonio David, a full-stack web developer in the makin
 
 #Usage
 The application can be run locally on your localhost:
-1. Clone it (<tt>git@github.com:agdavid/sight-see-dc-sinatra-application-heroku.git</tt>)
+
+1. In terminal, clone it (<tt>git clone git@github.com:agdavid/sight-see-dc-sinatra-application-heroku.git</tt>)
 2. In the application folder, run Bundler (<tt>bundle install</tt>)
 3. In the application folder, migrate the database (<tt>rake db:migrate</tt>)
 5. Start your local server (<tt>shotgun</tt>)
 
-Or visit the [live application](http://sightseedc-sinatra.herokuapp.com/) hosted on Heroku.
+Or visit the [LIVE application](http://sightseedc-sinatra.herokuapp.com/) hosted on Heroku!
 
 
 # Contributing
@@ -28,4 +29,4 @@ Bug reports and pull requests are welcome on GitHub.
 This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 # License
-This project was created as part of the curriculum of Learn.co which is publicly and freely available under {Learn's Educational Content License}[https://learn.co/content-license].
+This project was created as part of the curriculum of Learn.co which is publicly and freely available under (Learn's Educational Content License)[https://learn.co/content-license].
