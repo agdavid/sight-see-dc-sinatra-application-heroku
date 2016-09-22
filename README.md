@@ -29,4 +29,4 @@ Bug reports and pull requests are welcome on GitHub.
 This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 # License
-This project was created as part of the curriculum of Learn.co which is publicly and freely available under (Learn's Educational Content License)[https://learn.co/content-license].
+This project was created as part of the curriculum of Learn.co which is publicly and freely available under [Learn's Educational Content License](https://learn.co/content-license).
