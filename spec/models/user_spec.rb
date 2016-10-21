@@ -14,6 +14,8 @@ describe User do
 
     after(:each) do
         User.destroy_all
+        Sight.destroy_all
+        Review.destroy_all
     end
         
     context "instantiates a User" do 
