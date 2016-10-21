@@ -12,6 +12,9 @@ gem 'bcrypt'
 gem 'tux'
 gem 'pg'
 
+gem 'rspec'
+gem 'rack-test'
+
 group :development do 
   gem 'sqlite3'
 end
